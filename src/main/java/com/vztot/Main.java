@@ -19,14 +19,14 @@ public class Main {
 
         ExecutorService executorService = Executors.newFixedThreadPool(THREADS);
         int sumExecutor = 0;
-        for (Future<Integer> integerFuture : executorService.invokeAll(listOfCallables)) {
-            sumExecutor += integerFuture.get();
+        for (Future<Integer> future : executorService.invokeAll(listOfCallables)) {
+            sumExecutor += future.get();
         }
 
         ForkJoinPool forkJoinPool = new ForkJoinPool(THREADS);
         int sumJoin = 0;
-        for (Future<Integer> integerFuture : forkJoinPool.invokeAll(listOfCallables)) {
-            sumJoin += integerFuture.get();
+        for (Future<Integer> future : forkJoinPool.invokeAll(listOfCallables)) {
+            sumJoin += future.get();
         }
 
         System.out.println("Executor sum: " + sumExecutor + "\nFork sum: " + sumJoin);
