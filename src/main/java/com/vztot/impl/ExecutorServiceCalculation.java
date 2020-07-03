@@ -8,7 +8,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class ExecutorServiceCalculation {
-
     private ExecutorService executorService;
     private List<CallableClass> listOfCallables;
 
